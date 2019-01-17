@@ -11,7 +11,13 @@ public class Demo1 {
 		try {
 			Context context = ClientUtility.getInitialContext();
 			ProductService productService = (ProductService)context.lookup("moduledatabase.services.ProductService#moduledatabase.services.ProductService");
-		System.out.println("product List");
+			Product newProduct = new Product();
+			newProduct.setName("ProductOne");
+			newProduct.setPrice(18.5);
+			newProduct.setQuantity(24);
+			newProduct.setStatus(true);
+			productService.createProduct(newProduct);
+			System.out.println("product List");
 		for(Product product: productService.findAll()) {
 			System.out.println("Id: " + product.getId());
 			System.out.println("Name: " + product.getName());

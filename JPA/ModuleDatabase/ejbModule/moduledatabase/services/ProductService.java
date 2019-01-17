@@ -9,4 +9,5 @@ import moduledatabase.entities.Product;
 @Remote
 public interface ProductService {
 	public List<Product> findAll();
+	public void createProduct(Product product);
 }

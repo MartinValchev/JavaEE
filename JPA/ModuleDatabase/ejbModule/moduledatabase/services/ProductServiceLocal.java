@@ -9,4 +9,5 @@ import moduledatabase.entities.Product;
 @Local
 public interface ProductServiceLocal {
 	public List<Product> findAll();
+	public void createProduct(Product product);
 }

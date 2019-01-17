@@ -10,18 +10,27 @@ import javax.persistence.PersistenceContext;
 import moduledatabase.entities.Product;
 
 @Stateless
-public class ProductServiceImpl implements ProductService,ProductServiceLocal,Serializable {
-	
+public class ProductServiceImpl implements ProductService, ProductServiceLocal, Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4132364370329936994L;
-	@PersistenceContext(name="ModuleDatabase")
+	@PersistenceContext(name = "ModuleDatabase")
 	private EntityManager entityManager;
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> findAll() {
 		return entityManager.createQuery("select p from Product p").getResultList();
+	}
+
+	@Override
+	public void createProduct(Product product) {
+		if (product != null) {
+			entityManager.persist(product);
+		}
+
 	}
 
 }
