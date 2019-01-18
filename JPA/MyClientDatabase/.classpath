@@ -306,5 +306,7 @@
 	<classpathentry kind="lib" path="C:/glassfish/glassfish-5.0/glassfish5/glassfish/modules/work-management.jar"/>
 	<classpathentry kind="lib" path="C:/glassfish/glassfish-5.0/glassfish5/glassfish/modules/yasson.jar"/>
 	<classpathentry kind="lib" path="C:/Users/martin.valchev/eclipse-workspace/.metadata/ModuleDatabase.jar"/>
+	<classpathentry kind="lib" path="C:/glassfish/glassfish-5.0/glassfish5/glassfish/domains/domain2/lib/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="C:/glassfish/glassfish-5.0/glassfish5/glassfish/domains/domain2/lib/mysql-connector-java-5.1.47-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -12,9 +12,9 @@ public class Demo1 {
 			Context context = ClientUtility.getInitialContext();
 			ProductService productService = (ProductService)context.lookup("moduledatabase.services.ProductService#moduledatabase.services.ProductService");
 			Product newProduct = new Product();
-			newProduct.setName("ProductOne");
-			newProduct.setPrice(18.5);
-			newProduct.setQuantity(24);
+			newProduct.setName("ProductTwo");
+			newProduct.setPrice(26);
+			newProduct.setQuantity(11);
 			newProduct.setStatus(true);
 			productService.createProduct(newProduct);
 			System.out.println("product List");
