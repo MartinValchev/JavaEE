@@ -43,7 +43,7 @@ public class Customer implements Serializable {
 	@JoinColumn(name = "BILLING_ADDRESS_ID")
 	private Address billingAddress;
 
-	@OneToOne
+	@OneToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "SHIPPING_ADDRESS_ID")
 	private Address shippingAddress;
 

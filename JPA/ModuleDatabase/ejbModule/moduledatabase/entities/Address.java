@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -15,14 +17,15 @@ public class Address implements Serializable {
 		 */
 	private static final long serialVersionUID = 3758379456661378447L;
 
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private BigDecimal id;
 	
 	private int zipCode;
 	
 	private String city;
 	
-	@Id
+	
 	public BigDecimal getId() {
 		return id;
 	}
