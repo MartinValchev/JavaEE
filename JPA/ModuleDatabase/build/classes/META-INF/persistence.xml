@@ -3,5 +3,8 @@
 <persistence-unit name="testdatajpa" transaction-type="JTA">
     <jta-data-source>jdbc/__Module_Connection</jta-data-source>
     <class>moduledatabase.entities.Product</class>
+    <class>moduledatabase.entities.Customer</class>
+    <class>moduledatabase.entities.CustomerOrder</class>
+    <class>moduledatabase.entities.Address</class>
   </persistence-unit>
 </persistence>

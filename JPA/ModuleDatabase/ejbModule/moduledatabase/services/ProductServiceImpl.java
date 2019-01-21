@@ -34,6 +34,7 @@ public class ProductServiceImpl implements ProductService, ProductServiceLocal, 
 	@Override
 	public void createProduct(Product product) {
 		if (product != null) {
+			entityManager =  (EntityManager)context.lookup("testdatajpa");
 			entityManager.persist(product);
 		}
 
