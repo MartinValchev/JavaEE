@@ -6,5 +6,6 @@
     <class>moduledatabase.entities.Customer</class>
     <class>moduledatabase.entities.CustomerOrder</class>
     <class>moduledatabase.entities.Address</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>

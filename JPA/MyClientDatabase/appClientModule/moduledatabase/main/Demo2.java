@@ -14,13 +14,13 @@ public class Demo2 {
 			
 			CustomerService customerService = (CustomerService)context.lookup("moduledatabase.services.CustomerService#moduledatabase.services.CustomerService");
 			Customer newCustomer  = new Customer();
-			newCustomer.setEmail("pepa.hristova@abv.bg");
+			newCustomer.setEmail("haralampi.hristov@abv.bg");
 			Address shippingAddress = new Address();
-			shippingAddress.setZipCode(4532);
-			shippingAddress.setCity("Topolovgrad");
+			shippingAddress.setZipCode(4587);
+			shippingAddress.setCity("Velingrad");
 			Address billingAddress = new Address();
-			billingAddress.setZipCode(2614);
-			billingAddress.setCity("Lovech");	
+			billingAddress.setZipCode(8874);
+			billingAddress.setCity("Plovdiv");	
 			newCustomer.setBillingAddress(billingAddress);
 			newCustomer.setShippingAddress(shippingAddress);
 			customerService.addNewCustomer(newCustomer);

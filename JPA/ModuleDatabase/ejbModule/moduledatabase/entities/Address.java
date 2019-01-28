@@ -3,13 +3,15 @@ package moduledatabase.entities;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({@NamedQuery(name="Address.findAll", query="select e from Address e")})
 public class Address implements Serializable {
 
 	/**

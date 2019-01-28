@@ -2,6 +2,7 @@ package moduledatabase.entities;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -19,6 +22,8 @@ import javax.persistence.Version;
 
 @Entity(name = "Customer")
 @Table(name = "CUSTOMER")
+@NamedQueries({ @NamedQuery(name = "Customer.findAll", query = "select o from Customer o"),
+		@NamedQuery(name = "Customer.findByEmail", query = "select o from Customer o where o.email= :email") })
 @TableGenerator(name = "Customer_ID_Generator", table = "customer_id_gen", pkColumnName = "PRIMARY_KEY_NAME", pkColumnValue = "Customer.id", valueColumnName = "NEXT_ID_VALUE")
 public class Customer implements Serializable {
 	/**
@@ -33,12 +38,12 @@ public class Customer implements Serializable {
 
 	@Version
 	private int version;
-	
+
 	private String email;
-	
+
 	@OneToMany(mappedBy = "customer", cascade = { CascadeType.ALL })
 	private List<CustomerOrder> customerOrders;
-	
+
 	@OneToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "BILLING_ADDRESS_ID")
 	private Address billingAddress;
@@ -75,6 +80,22 @@ public class Customer implements Serializable {
 		return customerOrders;
 	}
 
+	public CustomerOrder addCustomerOrder(CustomerOrder customerOrder) {
+		if (customerOrders == null) {
+			customerOrders = new ArrayList<CustomerOrder>();
+		}
+		customerOrders.add(customerOrder);
+		customerOrder.setCustomer(this);
+		return customerOrder;
+
+	}
+
+	public CustomerOrder removeCustomerOrder(CustomerOrder customerOrder) {
+		getCustomerOrders().remove(customerOrder);
+		customerOrder.setCustomer(null);
+		return customerOrder;
+	}
+
 	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
 		this.customerOrders = customerOrders;
 	}
@@ -100,7 +121,5 @@ public class Customer implements Serializable {
 		return "Customer [id=" + id + ", email=" + email + ", customerOrders=" + customerOrders + ", billingAddress="
 				+ billingAddress + ", shippingAddress=" + shippingAddress + "]";
 	}
-	
-	
 
 }
